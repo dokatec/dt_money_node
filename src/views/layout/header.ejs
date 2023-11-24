@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DT - Money</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="header_nav">
+        <h1><a href="/">Caixinha</a></h1>
+        <a class="header_nav__link" href="#main_section__transacao"
+          >Nova Transação</a
+        >
+      </nav>
+      <section class="header_section">
+        <div class="header_section__div">
+          <p>Entradas</p>
+          <h3 class="p_positivo">R$: <%= entrada %>,00</h3>
+        </div>
+        <div class="header_section__div">
+          <p>Saidas</p>
+          <h3 class="p_negativo">R$: <%= saida %>,00</h3>
+        </div>
+        <div class="header_section__div">
+          <p>Total</p>
+          <h3 class="p_negativo">R$: <%= total %>,00</h3>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="main_section">
+        <form class="main_section__form" action="/" method="get">
+          <select class="main_section__input_transacao" name="name" id="name">
+            <option value="">Todas</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Freelancer">Freelancer</option>
+            <option value="Casa">Casa</option>
+            <option value="Viagem">Viagem</option>
+            <option value="Carro">Carro</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Festas">Festas</option>
+            <option value="Outros">Outros</option>
+          </select>
+
+          <!--
+          <input
+            class="main_section__input"
+            type="text"
+            placeholder="Busque uma transação"
+            name="name"
+            id="name"
+          />-->
+          <button class="main_section__button" type="submit">Buscar</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

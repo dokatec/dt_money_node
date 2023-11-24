@@ -1,0 +1,106 @@
+<%- include('layout/header'); %>
+
+<section class="main_section__item">
+  <div class="main_section__div">
+    <p class="font-weight">Descricao</p>
+    <p class="font-weight">R$ Valor</p>
+    <p class="font-weight">Categoria</p>
+    <p class="font-weight">Data</p>
+  </div>
+</section>
+
+      <section class="main_section__item">
+        <% result.forEach(function(item) { %>
+        <div class="main_section__div">
+         
+          <p><%= item.descricao %></p>
+
+          <% if (item.tipo == "entrada") { %>
+          <p class="p_positivo">R$: <%= item.preco %>,00</p>
+          <% } %> <% if (item.tipo == "saida") { %>
+          <p class="p_negativo">- R$: <%= item.preco %>,00</p>
+          <% } %>
+          <p><%= item.categoria %></p>
+          <p><%= item.date.getDate() %>/<%= item.date.getMonth() + 1 %>/<%= item.date.getFullYear() %></p>
+          <form method="get" action="/del">
+          <input class="" type="text" name="id" id="id" value=<%= item._id%> hidden>
+          <button class="button_cicle" type="submit"><span class="material-symbols-outlined">
+            delete_forever
+            </span></button>
+        </form>
+        </div>
+       
+        <% }); %>
+      </section>
+
+      <section id="main_section__transacao" class="main_section__transacao">
+        
+        <form class="main_section__form_transacao" action="/add" method="post">
+          
+            
+            <h3>Nova Transação</h3>
+            
+         
+          <input
+            class="main_section__input_transacao"
+            type="text"
+            placeholder="Descricao"
+            name="descricao"
+            id="descricao" required
+          />
+          <input
+            class="main_section__input_transacao"
+            type="text"
+            placeholder="Preço"
+            name="preco"
+            id="preco" required
+          />
+          <select
+            class="main_section__input_transacao"
+            name="categoria"
+            id="categoria" required
+          >
+            <option value="Alimentação">Alimentação</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Freelancer">Freelancer</option>
+            <option value="Casa">Casa</option>
+            <option value="Viagem">Viagem</option>
+            <option value="Carro">Carro</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Festas">Festas</option>
+            <option value="Outros">Outros</option>
+          </select>
+          <!--
+              <input class="main_section__input_transacao" type="text" placeholder="Categoria" name="categoria" id="categoria">
+              -->
+          <div class="main_div__radio">
+            <input
+              class="main_div__radio_input"
+              type="radio"
+              name="tipo"
+              id="tipo"
+              value="entrada" 
+            /><label>Entrada</label>
+            <input
+              class="main_div__radio_input"
+              type="radio"
+              name="tipo"
+              id="tipo"
+              value="saida"
+            /><label>Saida</label>
+          </div>
+          <input
+            class="main_section__input_transacao"
+            type="date"
+            id="date"
+            name="date" required
+          />
+          <button class="main_section__button_transacao" type="submit">
+            Salvar
+          </button>
+        </form>
+      </section>
+    </main>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
