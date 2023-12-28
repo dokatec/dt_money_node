@@ -29,7 +29,11 @@
         </div>
         <div class="header_section__div">
           <p>Total</p>
+          <% if (total >= 0) { %>
+          <h3 class="p_positivo">R$: <%= total %>,00</h3>
+          <% } else { %>
           <h3 class="p_negativo">R$: <%= total %>,00</h3>
+          <% } %>
         </div>
       </section>
     </header>
